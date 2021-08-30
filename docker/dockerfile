@@ -1,0 +1,28 @@
+FROM python:3.6
+
+LABEL maintainer="kay.wuensche@gmx.de"
+
+ENV DEBIAN_FRONTEND noninteractive
+
+COPY docker/requirements.txt .
+COPY srv/fonts/ /usr/share/fonts/
+
+RUN fc-cache -f -v && \
+    apt-get update -y && \
+    apt-get install -y apt-utils && \
+    apt-get install poppler-utils -y && \
+    apt-get install -y libreoffice && \
+    apt-get install build-essential libpoppler-cpp-dev pkg-config python-dev -y && \
+    apt-get install ghostscript -y && \
+    apt-get install -y xpdf && \
+    apt-get install enchant -y && \
+    apt-get install myspell-de-de -y && \
+    pip install -r requirements.txt && \
+    python -m spacy download de_dep_news_trf && \
+    python -m spacy download en_core_web_trf && \
+    apt-get clean
+
+COPY src/main /main
+WORKDIR /main
+
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "5011"]

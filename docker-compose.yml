@@ -1,0 +1,14 @@
+version: '3'
+services:
+    processing_files:
+        restart: always
+        build:
+            dockerfile: ./docker/dockerfile
+            context: ./
+        networks:
+          - webproxy
+        ports:
+          - '5011:5011'
+networks:
+  webproxy:
+    driver: bridge
