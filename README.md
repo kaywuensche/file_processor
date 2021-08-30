@@ -49,7 +49,7 @@ To see all the available endpoints, open your favorite browser and navigate to:
 
 ```http://<machine_IP>:5011/docs```
 
-<img width="373" alt="Bildschirmfoto 2021-05-21 um 09 19 25" src="https://user-images.githubusercontent.com/58667455/119098001-aaf20780-ba15-11eb-88aa-898306c11ba2.png">
+<img width="493" alt="overview" src="https://user-images.githubusercontent.com/58667455/131350616-25f48ef4-6c5e-46b8-a4d0-274339d6cadc.png">
 
 Some of the endpoint will response with a pdf or a zip file. Fast API can't display these files, but you can use a tool like Postman with the additional functionality of saving the response for test purposes:
 
