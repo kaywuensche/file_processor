@@ -1,9 +1,3 @@
-sklearn
-hmmlearn
-pyAudioAnalysis
-av
-ffmpeg
-moviepy
 fastapi==0.63.0
 uvicorn==0.13.4
 python-multipart==0.0.5
